@@ -1,0 +1,16 @@
+name: LivePlugin
+version: 1.0.0
+main: dev.king.livePlugin.LivePlugin
+api-version: '1.21'
+authors: [ 'dev.king' ]
+softdepend: [ LuckPerms ]
+
+commands:
+  live:
+    description: Gestisce le live dei giocatori
+    usage: "/live <register|on|off>"
+    aliases: [ stream ]
+
+permissions:
+  live.use:
+    default: true

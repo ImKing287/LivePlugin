@@ -1,0 +1,15 @@
+live-group: "live"
+
+messages:
+  prefix: "&d[LIVE]&r "
+  registered: "&aRegistrato link per &e%platform%&a: &e%link%"
+  invalid-platform: "&cPiattaforma non valida! Usa: twitch, youtube o tiktok."
+  invalid-link: "&cLink non valido! Deve iniziare con http:// o https:// e non contenere spazi."
+  no-link-platform: "&cNon hai registrato alcun link per &e%platform%&c. Usa &e/live register %platform% <link>"
+  start: "&b%player% &7è in live su &b%platform%&7! Guarda qui: &e%link%"
+  stop: "&b%player% &7ha terminato la live."
+  luckperms-missing: "&cLuckPerms non è disponibile!"
+  no-perm: "&cNon hai il permesso."
+  help1: "&eUsa: /live register <twitch|youtube|tiktok> <link>"
+  help2: "&eUsa: /live on <piattaforma>"
+  help3: "&eUsa: /live off"
