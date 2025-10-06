@@ -17,7 +17,7 @@ public class LiveCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        // Solo player
+
         if (!(sender instanceof Player player)) {
             sender.sendMessage("Questo comando può essere usato solo in gioco.");
             return true;
@@ -29,7 +29,7 @@ public class LiveCommand implements CommandExecutor {
             return true;
         }
 
-        // Nessun argomento -> help
+
         if (args.length == 0) {
             help(player);
             return true;
@@ -48,7 +48,7 @@ public class LiveCommand implements CommandExecutor {
                 String platform = args[1].toLowerCase();
                 String link = args[2];
 
-                // Piattaforma supportata?
+
                 if (!manager.isSupportedPlatform(platform)) {
                     player.sendMessage(plugin.color(
                             plugin.getConfig().getString("messages.prefix", "") +
@@ -58,7 +58,7 @@ public class LiveCommand implements CommandExecutor {
                     return true;
                 }
 
-                // Validazione link e salvataggio (fa anche save su disco)
+
                 if (manager.registerLink(player, platform, link)) {
                     String msg = plugin.getConfig().getString("messages.registered",
                             "&aRegistrato link per &e%platform%&a: &e%link%");
@@ -79,7 +79,7 @@ public class LiveCommand implements CommandExecutor {
 
                 String platform = args[1].toLowerCase();
 
-                // Controllo esplicito: se non hai link registrato per quella piattaforma, messaggio chiaro
+
                 String link = manager.getLink(player, platform);
                 if (link == null) {
                     String msg = plugin.getConfig().getString("messages.no-link-platform",
@@ -91,7 +91,7 @@ public class LiveCommand implements CommandExecutor {
                     return true;
                 }
 
-                // Procede con l'attivazione (aggiunge gruppo LP e annuncia)
+
                 manager.goLive(player, platform);
                 return true;
             }
@@ -117,3 +117,4 @@ public class LiveCommand implements CommandExecutor {
                 "&eUsa: /live off")));
     }
 }
+
