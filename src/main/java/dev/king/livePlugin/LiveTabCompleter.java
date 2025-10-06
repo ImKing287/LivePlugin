@@ -30,7 +30,7 @@ public class LiveTabCompleter implements TabCompleter {
                 return filter(PLATFORMS, args[1]);
             }
             if (args[0].equalsIgnoreCase("on")) {
-                // Suggerisci solo piattaforme che il player ha registrato
+
                 var owned = new ArrayList<>(manager.getAllLinks(player).keySet());
                 if (owned.isEmpty()) owned.addAll(PLATFORMS);
                 return filter(owned, args[1]);
@@ -38,7 +38,7 @@ public class LiveTabCompleter implements TabCompleter {
         }
 
         if (args.length == 3 && args[0].equalsIgnoreCase("register")) {
-            // Suggerisci l'inizio del link per comodità
+
             return filter(List.of("https://", "http://"), args[2]);
         }
 
@@ -52,3 +52,4 @@ public class LiveTabCompleter implements TabCompleter {
         return out;
     }
 }
+
