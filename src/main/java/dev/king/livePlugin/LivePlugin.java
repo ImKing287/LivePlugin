@@ -20,7 +20,7 @@ public class LivePlugin extends JavaPlugin {
 
         liveManager = new LiveManager(this);
 
-        // Comando e tab completer
+
         var cmd = getCommand("live");
         if (cmd != null) {
             cmd.setExecutor(new LiveCommand(this, liveManager));
@@ -34,7 +34,7 @@ public class LivePlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Salva su disco
+
         liveManager.saveAll();
         getLogger().info("LivePlugin disabilitato.");
     }
@@ -69,8 +69,9 @@ public class LivePlugin extends JavaPlugin {
         }
     }
 
-    /** Converte & in § per i colori */
+
     public String color(String text) {
         return text != null ? text.replace("&", "§") : "";
     }
 }
+
