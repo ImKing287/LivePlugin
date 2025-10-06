@@ -13,7 +13,7 @@ public class LiveManager {
 
     private final LivePlugin plugin;
 
-    // Dati: UUID -> ( piattaforma -> link )
+
     private final Map<UUID, Map<String, String>> links = new HashMap<>();
 
     private static final Set<String> SUPPORTED = Set.of("twitch", "youtube", "tiktok");
@@ -23,7 +23,7 @@ public class LiveManager {
         loadAll();
     }
 
-    /* ---------- Persistenza ---------- */
+
 
     public final void loadAll() {
         links.clear();
@@ -55,7 +55,7 @@ public class LiveManager {
         plugin.savePlayersConfig();
     }
 
-    /* ---------- API dati ---------- */
+
 
     public boolean isSupportedPlatform(String p) {
         return SUPPORTED.contains(p.toLowerCase(Locale.ROOT));
@@ -73,7 +73,7 @@ public class LiveManager {
         platform = platform.toLowerCase(Locale.ROOT);
         if (!isSupportedPlatform(platform)) return false;
 
-        // Valida link: http/https, nessuno spazio, almeno un punto nel dominio
+
         if (link == null || !link.matches("^(https?://)\\S+\\.[\\w\\-]+.*$")) {
             player.sendMessage(plugin.color(
                     plugin.getConfig().getString("messages.prefix", "") +
@@ -87,7 +87,7 @@ public class LiveManager {
         return true;
     }
 
-    /* ---------- Azioni live ---------- */
+
 
     public void goLive(Player player, String platform) {
         platform = platform.toLowerCase(Locale.ROOT);
@@ -105,7 +105,7 @@ public class LiveManager {
             return;
         }
 
-        // LuckPerms
+
         var group = plugin.getConfig().getString("live-group", "live");
         var lp = tryGetLuckPerms(player);
         if (lp == null) return;
@@ -149,7 +149,7 @@ public class LiveManager {
         ));
     }
 
-    /* ---------- Utils ---------- */
+
 
     private net.luckperms.api.LuckPerms tryGetLuckPerms(Player player) {
         try {
@@ -162,3 +162,4 @@ public class LiveManager {
         }
     }
 }
+
